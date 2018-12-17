@@ -1,8 +1,9 @@
 nav {
-    background: #2D2E2E;
+    background: rgb(35, 180, 173);
     height: 100%;
 
     ul {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         list-style-type: none;
         padding: 0;
         margin: 0;
@@ -12,7 +13,7 @@ nav {
             a {
                 color: #fff;
                 padding-top: 30px;
-                padding-left: 20px;
+                padding-left: 10px;
                 display: block;
             }
 
