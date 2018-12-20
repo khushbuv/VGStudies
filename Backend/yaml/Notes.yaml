@@ -18,7 +18,7 @@ paths:
       - "Notes"
       summary: "get notes by date"
       description: "Returns notes from last week"
-      operationId: "getNotesFromLastWeek"
+      operationId: "getNotes"
       produces:
       - "application/xml"
       - "application/json"
