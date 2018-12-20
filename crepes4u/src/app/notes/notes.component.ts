@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NotesService} from '../notes.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-notes',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
+  testvar: string;
 
-  constructor() { }
+  constructor(private nService: NotesService) {
+    this.testvar = "test";
+   }
 
   ngOnInit() {
+  
   }
 
 }

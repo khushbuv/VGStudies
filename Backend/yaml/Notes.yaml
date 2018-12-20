@@ -1,0 +1,166 @@
+swagger: '2.0'
+info:
+  description: >-
+    VGStudy
+  version: 1.0.0
+  title: Crepes4U
+tags:
+  - name: Notes
+    description: Notes from students
+schemes:
+  - https
+  - http
+paths:
+
+  /notes:
+    get:
+      tags:
+      - "Notes"
+      summary: "get notes by date"
+      description: "Returns notes from last week"
+      operationId: "getNotesFromLastWeek"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "query"
+        name: "tdate"
+        description: "date from which last 1 week is to be calculated"
+        required: true
+        type: "string"
+        format: "date-time"
+      - in: "query" 
+        name: "duration"
+        description: "notes need to be fetched from last week, last month or last year"
+        type: "array"
+        items:
+         type: "string"
+         enum:
+         - "last_week"
+         - "last_month"
+         - "last_year"
+       
+      responses:
+        200:
+         description: "successful operation"
+         schema:
+           type: "array"
+           items: 
+              $ref: "#/definitions/Note"
+        400:
+          description: "Bad Request"
+        401:
+         description: "user is unauthorised to make this request"
+        404:
+          description: "not found"
+        408:
+          description: "Request timeout"
+        500:
+          description: "Internal server error"
+    
+  
+  
+  /note:
+    post:
+      tags:
+        - Notes
+      summary: Add a new new note
+      description: ''
+      operationId: addNote
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Note object that needs to be added
+          required: true
+          schema:
+            $ref: '#/definitions/Note'
+      responses:
+        '405':
+          description: Invalid input
+    
+    put:
+      tags:
+        - Notes
+      summary: Update an existing Note
+      description: ''
+      operationId: updateNote
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Pet object that needs to be added to the store
+          required: true
+          schema:
+            $ref: '#/definitions/Note'
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+        '405':
+          description: Validation exception
+      
+
+ 
+  '/note/{noteId}':
+    delete:
+      tags:
+        - Notes
+      summary: Deletes a Note
+      description: ''
+      operationId: deleteNote
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: noteId
+          in: path
+          description: Pet id to delete
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pet not found
+          
+
+definitions:
+  Note:
+    type: object
+    required:
+      - name
+      - content
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        example: Radioactive
+      category:
+        type: string
+        example: Chemistry
+      tags:
+        type: array
+        items:
+          type: string
+      content:
+        type: string
+        example: "Electron number for Uranium is 92"
+    xml:
+      name: Note
+      
+  
