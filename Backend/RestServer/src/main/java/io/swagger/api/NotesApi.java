@@ -5,9 +5,12 @@
  */
 package io.swagger.api;
 
+import org.threeten.bp.LocalDate;
 import io.swagger.model.Note;
-import org.threeten.bp.OffsetDateTime;
+import io.swagger.annotation.FormatResolver;
 import io.swagger.annotations.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-12-20T05:27:06.598Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-12-20T06:22:00.551Z")
 
 @Api(value = "notes", description = "the notes API")
 public interface NotesApi {
@@ -38,6 +41,7 @@ public interface NotesApi {
     @RequestMapping(value = "/notes",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<List<Note>> getNotes(@NotNull @ApiParam(value = "date from which last 1 week is to be calculated", required = true) @Valid @RequestParam(value = "tdate", required = true) OffsetDateTime tdate,@ApiParam(value = "notes need to be fetched from last week, last month or last year", allowableValues = "last_week, last_month, last_year") @Valid @RequestParam(value = "duration", required = false) List<String> duration);
+//    ResponseEntity<List<Note>> getNotes(@NotNull @ApiParam(value = "date from which last 1 week is to be calculated", required = true) @Valid @RequestParam(value = "tdate", required = true)@FormatResolver("tdate") LocalDate tdate,@ApiParam(value = "notes need to be fetched from last week, last month or last year", allowableValues = "last_week, last_month, last_year") @Valid @RequestParam(value = "duration", required = false) List<String> duration);
+    ResponseEntity<List<Note>> getNotes(@NotNull @Valid @FormatResolver("tdate") LocalDate tdate,@ApiParam(value = "notes need to be fetched from last week, last month or last year", allowableValues = "last_week, last_month, last_year") @Valid @RequestParam(value = "duration", required = false) List<String> duration);
 
 }
