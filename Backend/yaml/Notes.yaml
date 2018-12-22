@@ -12,7 +12,7 @@ schemes:
   - http
 paths:
 
-  /notes:
+  /notes/{userId}:
     get:
       tags:
       - "Notes"
@@ -23,12 +23,18 @@ paths:
       - "application/xml"
       - "application/json"
       parameters:
+      - in: "path"
+        name: "userId"
+        description: ""
+        required: true
+        type: "integer"
+        format: "int64"
       - in: "query"
         name: "tdate"
         description: "date from which last 1 week is to be calculated"
         required: true
         type: "string"
-        format: "date-time"
+        format: "date"
       - in: "query" 
         name: "duration"
         description: "notes need to be fetched from last week, last month or last year"
@@ -60,7 +66,7 @@ paths:
     
   
   
-  /note:
+  /note/{userId}:
     post:
       tags:
         - Notes
@@ -74,6 +80,12 @@ paths:
         - application/xml
         - application/json
       parameters:
+        - in: "path"
+          name: "userId"
+          description: ""
+          required: true
+          type: "integer"
+          format: "int64"
         - in: body
           name: body
           description: Note object that needs to be added
@@ -83,7 +95,8 @@ paths:
       responses:
         '405':
           description: Invalid input
-    
+          
+  /note/update/{noteId}:
     put:
       tags:
         - Notes
@@ -97,6 +110,17 @@ paths:
         - application/xml
         - application/json
       parameters:
+        - in: query
+          name: userId
+          description: userId associated with the user of note
+          required: true
+          type: integer
+          format: int64
+        - in: path
+          name: noteId
+          required: true
+          type: integer
+          format: int64
         - in: body
           name: body
           description: Pet object that needs to be added to the store
@@ -113,7 +137,7 @@ paths:
       
 
  
-  '/note/{noteId}':
+  /note/delete/{noteId}:
     delete:
       tags:
         - Notes
@@ -126,7 +150,13 @@ paths:
       parameters:
         - name: noteId
           in: path
-          description: Pet id to delete
+          description: note id to delete
+          required: true
+          type: integer
+          format: int64
+        - name: userId
+          in: query
+          description: user id to delete associated note
           required: true
           type: integer
           format: int64

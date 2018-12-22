@@ -20,7 +20,7 @@ import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-12-20T06:22:00.551Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-12-22T05:19:55.468Z")
 
 @Controller
 public class NoteApiController implements NoteApi {
@@ -37,17 +37,17 @@ public class NoteApiController implements NoteApi {
         this.request = request;
     }
 
-    public ResponseEntity<Void> addNote(@ApiParam(value = "Note object that needs to be added" ,required=true )  @Valid @RequestBody Note body) {
+    public ResponseEntity<Void> addNote(@ApiParam(value = "",required=true) @PathVariable("userId") Long userId,@ApiParam(value = "Note object that needs to be added" ,required=true )  @Valid @RequestBody Note body) {
         String accept = request.getHeader("Accept");
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Void> deleteNote(@ApiParam(value = "Pet id to delete",required=true) @PathVariable("noteId") Long noteId) {
+    public ResponseEntity<Void> deleteNote(@ApiParam(value = "note id to delete",required=true) @PathVariable("noteId") Long noteId,@NotNull @ApiParam(value = "user id to delete associated note", required = true) @Valid @RequestParam(value = "userId", required = true) Long userId) {
         String accept = request.getHeader("Accept");
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Void> updateNote(@ApiParam(value = "Pet object that needs to be added to the store" ,required=true )  @Valid @RequestBody Note body) {
+    public ResponseEntity<Void> updateNote(@NotNull @ApiParam(value = "userId associated with the user of note", required = true) @Valid @RequestParam(value = "userId", required = true) Long userId,@ApiParam(value = "",required=true) @PathVariable("noteId") Long noteId,@ApiParam(value = "Pet object that needs to be added to the store" ,required=true )  @Valid @RequestBody Note body) {
         String accept = request.getHeader("Accept");
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
