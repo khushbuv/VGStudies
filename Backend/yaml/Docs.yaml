@@ -1,0 +1,225 @@
+swagger: '2.0'
+info:
+  description: VG Studies
+  version: 1.0.0
+  title: Crepes4U
+ 
+tags:
+  - name: Docs
+    description: Docs to be uploaded
+    
+schemes:
+  - https
+  - http
+paths:
+  /doc/upload/{userId}:
+    post:
+      tags:
+        - Docs
+      summary: Add a new pet to the store
+      description: ''
+      operationId: uploadDoc
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: userId
+          description: ""
+          required: true
+          type: integer
+          format: int64
+        - name: DocName
+          in: formData
+          description: doc name.
+          required: true
+          type: string
+        - name: category
+          in: formData
+          description: ""
+          type: string
+        - name: docname
+          in: formData
+          description: ""
+          required: true
+          type: string
+        - name: tags
+          in: formData
+          description: ""
+          type: string
+          
+      responses:
+        200:
+         description: "successful operation"
+        400:
+          description: "Bad Request"
+        401:
+         description: "user is unauthorised to make this request"
+        404:
+          description: "not found"
+        408:
+          description: "Request timeout"
+        500:
+          description: "Internal server error"
+
+  /doc/update/{docId}:
+    put:
+      tags:
+        - Docs
+      summary: Add a new pet to the store
+      description: ''
+      operationId: updateDoc
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: docId
+          description: ""
+          required: true
+          type: integer
+          format: int64
+        - in: query
+          name: userId
+          description: ""
+          required: true
+          type: integer
+          format: int64
+        - name: DocName
+          in: formData
+          description: doc name.
+          required: true
+          type: string
+        - name: category
+          in: formData
+          description: ""
+          type: string
+        - name: docname
+          in: formData
+          description: ""
+          required: true
+          type: string
+        - name: tags
+          in: formData
+          description: ""
+          type: string
+          
+      responses:
+        200:
+         description: "successful operation"
+        400:
+          description: "Bad Request"
+        401:
+         description: "user is unauthorised to make this request"
+        404:
+          description: "not found"
+        408:
+          description: "Request timeout"
+        500:
+          description: "Internal server error"
+          
+          
+  /docs/{userId}:
+    get:
+      tags:
+        - Docs
+      summary: ""
+      description: ''
+      operationId: getDocs
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: userId
+          description: ""
+          required: true
+          type: integer
+          format: int64
+        - in: query
+          name: date
+          description: ""
+          required: true
+          type: string
+          format: date
+      responses:
+        200:
+         description: "Successful Operation"
+         schema:
+          type: "array"
+          items:
+           $ref: "#/definitions/Doc"
+        400:
+         description: "Bad Request"
+        401:
+         description: "user is unauthorised to make this request"
+        404: 
+         description: "not found"
+        408:
+         description: "Request timeout"
+        500:
+         description: "Interval server error"
+         
+  /doc/download/{docId}:
+    get:
+      tags:
+        - Docs
+      summary: download file
+      description: ""
+      operationId: downloadFile
+      parameters: 
+      - in: path
+        name: docId
+        description: document Id
+        required: true
+        type: integer
+        format: int64
+      - name: userId
+        in: query
+        description: ""
+        required: true
+        type: integer
+        format: int64
+         
+      responses:
+       '200':
+        description: "successful operation"
+        schema:
+          type: file
+       400:
+          description: "Bad Request"
+       401:
+         description: "user is unauthorised to make this request"
+       404:
+          description: "not found"
+       408:
+          description: "Request timeout"
+       500:
+          description: "Internal server error"
+             
+       
+definitions:
+  Doc:
+    type: object
+    required:
+      - name
+      - content
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        example: Radioactivity
+      category:
+        type: string
+        example: Chemistry
+      tags:
+        type: array
+        items:
+          type: string
+        
+    xml:
+      name: Doc
+ 
