@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "io.swagger.api.service.FileStorageProperties",
+      "name": "file",
+      "type": "io.swagger.api.service.FileStorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "io.swagger.api.service.FileStorageProperties",
+      "name": "file.upload-dir",
+      "type": "java.lang.String"
+    }
+  ]
+}

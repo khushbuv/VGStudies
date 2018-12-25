@@ -35,6 +35,8 @@ public interface DocApi {
         @ApiResponse(code = 408, message = "Request timeout"),
         @ApiResponse(code = 500, message = "Internal server error") })
     @RequestMapping(value = "/doc/download/{docId}",
+    		produces = {"image/jpeg","application/pdf","image/png", "image/gif" ,"text/html","application/vnd.ms-excel", "application/zip"
+    				,"application/gzip", "text/plain"},
         method = RequestMethod.GET)
     ResponseEntity<Resource> downloadFile(@ApiParam(value = "document Id",required=true) @PathVariable("docId") Long docId,@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "userId", required = true) Long userId);
 

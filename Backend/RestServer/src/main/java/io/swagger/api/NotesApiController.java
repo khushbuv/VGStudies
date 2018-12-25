@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.annotation.FormatResolver;
 import io.swagger.annotations.ApiParam;
-import io.swagger.fakeBackend.NotesCreator;
+import io.swagger.api.fakeBackend.NotesCreator;
 import io.swagger.model.Note;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-12-22T05:19:55.468Z")
 

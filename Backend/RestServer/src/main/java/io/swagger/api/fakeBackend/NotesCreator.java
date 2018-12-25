@@ -1,4 +1,4 @@
-package io.swagger.fakeBackend;
+package io.swagger.api.fakeBackend;
 
 import java.util.Arrays;
 import java.util.List;
