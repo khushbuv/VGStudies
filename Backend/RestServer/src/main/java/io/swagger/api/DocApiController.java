@@ -13,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -54,12 +56,12 @@ public class DocApiController implements DocApi {
         return new ResponseEntity<Resource>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Void> updateDoc(@ApiParam(value = "",required=true) @PathVariable("docId") Long docId,@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "userId", required = true) Long userId,@ApiParam(value = "doc name.", required=true) @RequestParam(value="DocName", required=true)  String docName,@ApiParam(value = "", required=true) @RequestParam(value="docname", required=true)  String docname,@ApiParam(value = "") @RequestParam(value="category", required=false)  String category,@ApiParam(value = "") @RequestParam(value="tags", required=false)  String tags) {
+    public ResponseEntity<Void> updateDoc(@ApiParam(value = "",required=true) @PathVariable("docId") Long docId,@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "userId", required = true) Long userId,@ApiParam(value = "doc name.", required=true) @RequestParam(value="DocName", required=true)  String docName,@ApiParam(value = "file detail") @Valid @RequestPart("file") MultipartFile uploadfile,@ApiParam(value = "") @RequestParam(value="category", required=false)  String category,@ApiParam(value = "") @RequestParam(value="tags", required=false)  String tags) {
         String accept = request.getHeader("Accept");
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Void> uploadDoc(@ApiParam(value = "",required=true) @PathVariable("userId") Long userId,@ApiParam(value = "doc name.", required=true) @RequestParam(value="DocName", required=true)  String docName,@ApiParam(value = "", required=true) @RequestParam(value="docname", required=true)  String docname,@ApiParam(value = "") @RequestParam(value="category", required=false)  String category,@ApiParam(value = "") @RequestParam(value="tags", required=false)  String tags) {
+    public ResponseEntity<Void> uploadDoc(@ApiParam(value = "",required=true) @PathVariable("userId") Long userId,@ApiParam(value = "doc name.", required=true) @RequestParam(value="DocName", required=true)  String docName,@ApiParam(value = "file detail") @Valid @RequestPart("file") MultipartFile uploadfile,@ApiParam(value = "") @RequestParam(value="category", required=false)  String category,@ApiParam(value = "") @RequestParam(value="tags", required=false)  String tags) {
         String accept = request.getHeader("Accept");
         return new ResponseEntity<Void>(HttpStatus.NOT_IMPLEMENTED);
     }

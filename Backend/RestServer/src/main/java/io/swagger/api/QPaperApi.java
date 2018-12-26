@@ -21,12 +21,12 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-12-24T13:17:11.534Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2018-12-26T14:49:35.566Z")
 
-@Api(value = "doc", description = "the doc API")
-public interface DocApi {
+@Api(value = "q-paper", description = "the q-paper API")
+public interface QPaperApi {
 
-    @ApiOperation(value = "download file", nickname = "downloadFile", notes = "", response = Resource.class, tags={ "Docs", })
+    @ApiOperation(value = "download file", nickname = "downloadFile", notes = "", response = Resource.class, tags={ "Q-Paper", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "successful operation", response = Resource.class),
         @ApiResponse(code = 400, message = "Bad Request"),
@@ -34,14 +34,13 @@ public interface DocApi {
         @ApiResponse(code = 404, message = "not found"),
         @ApiResponse(code = 408, message = "Request timeout"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/doc/download/{docId}",
-    		produces = {"image/jpeg","application/pdf","image/png", "image/gif" ,"text/html","application/vnd.ms-excel", "application/zip"
-    				,"application/gzip", "text/plain"},
+    @RequestMapping(value = "/q-paper/download/{qpaperId}",
+        produces = { "text/plain; charset=utf-8", "image/png", "image/gif", "image/jpeg", "application/pdf" }, 
         method = RequestMethod.GET)
-    ResponseEntity<Resource> downloadFile(@ApiParam(value = "document Id",required=true) @PathVariable("docId") Long docId,@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "userId", required = true) Long userId);
+    ResponseEntity<Resource> downloadFile(@ApiParam(value = "Question Paper Id",required=true) @PathVariable("qpaperId") Long qpaperId,@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "userId", required = true) Long userId);
 
 
-    @ApiOperation(value = "Add a new pet to the store", nickname = "updateDoc", notes = "", tags={ "Docs", })
+    @ApiOperation(value = "update form data", nickname = "updateQPaper", notes = "", tags={ "Q-Paper", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "successful operation"),
         @ApiResponse(code = 400, message = "Bad Request"),
@@ -49,14 +48,14 @@ public interface DocApi {
         @ApiResponse(code = 404, message = "not found"),
         @ApiResponse(code = 408, message = "Request timeout"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/doc/update/{docId}",
+    @RequestMapping(value = "/q-paper/update/{qpaperId}",
         produces = { "application/json" }, 
         consumes = { "multipart/form-data" },
         method = RequestMethod.PUT)
-    ResponseEntity<Void> updateDoc(@ApiParam(value = "",required=true) @PathVariable("docId") Long docId,@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "userId", required = true) Long userId,@ApiParam(value = "doc name.", required=true) @RequestParam(value="DocName", required=true)  String docName,@ApiParam(value = "file detail") @Valid @RequestPart("file") MultipartFile uploadfile,@ApiParam(value = "") @RequestParam(value="category", required=false)  String category,@ApiParam(value = "") @RequestParam(value="tags", required=false)  String tags);
+    ResponseEntity<Void> updateQPaper(@ApiParam(value = "",required=true) @PathVariable("qpaperId") Long qpaperId,@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "userId", required = true) Long userId,@ApiParam(value = "doc name.", required=true) @RequestParam(value="DocName", required=true)  String docName,@ApiParam(value = "") @RequestParam(value="category", required=false)  String category,@ApiParam(value = "file detail") @Valid @RequestPart("file") MultipartFile uploadfile,@ApiParam(value = "") @RequestParam(value="tags", required=false)  String tags);
 
 
-    @ApiOperation(value = "Add a new pet to the store", nickname = "uploadDoc", notes = "", tags={ "Docs", })
+    @ApiOperation(value = "Add a question paper", nickname = "uploadQPaper", notes = "", tags={ "Q-Paper", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "successful operation"),
         @ApiResponse(code = 400, message = "Bad Request"),
@@ -64,10 +63,10 @@ public interface DocApi {
         @ApiResponse(code = 404, message = "not found"),
         @ApiResponse(code = 408, message = "Request timeout"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/doc/upload/{userId}",
+    @RequestMapping(value = "/q-paper/upload/{userId}",
         produces = { "application/json" }, 
         consumes = { "multipart/form-data" },
         method = RequestMethod.POST)
-    ResponseEntity<Void> uploadDoc(@ApiParam(value = "",required=true) @PathVariable("userId") Long userId,@ApiParam(value = "doc name.", required=true) @RequestParam(value="DocName", required=true)  String docName,@ApiParam(value = "file detail") @Valid @RequestPart("file") MultipartFile uploadfile,@ApiParam(value = "") @RequestParam(value="category", required=false)  String category,@ApiParam(value = "") @RequestParam(value="tags", required=false)  String tags);
+    ResponseEntity<Void> uploadQPaper(@ApiParam(value = "",required=true) @PathVariable("userId") Long userId,@ApiParam(value = "doc name.", required=true) @RequestParam(value="QPaperName", required=true)  String qpaperName,@ApiParam(value = "") @RequestParam(value="category", required=false)  String category,@ApiParam(value = "file detail") @Valid @RequestPart("file") MultipartFile uploadfile,@ApiParam(value = "") @RequestParam(value="tags", required=false)  String tags);
 
 }
