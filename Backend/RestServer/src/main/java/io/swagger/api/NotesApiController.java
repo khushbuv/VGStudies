@@ -54,6 +54,7 @@ public class NotesApiController implements NotesApi {
         if (accept != null && accept.contains("application/json")) {
         	HttpHeaders headers = new HttpHeaders();
         	headers.add("Content-Type","application/json; charset=UTF-8");
+        	headers.add("Access-Control-Allow-Origin", "*");
         	List<Note> notes = NotesCreator.getNotes();
         	 return new ResponseEntity<List<Note>>(notes,headers,HttpStatus.OK);
         }

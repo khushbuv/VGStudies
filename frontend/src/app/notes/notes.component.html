@@ -15,6 +15,7 @@
 <body>
   <div class="container">
     <div class = "row">
+       
       <div class= "col-md-2">
         <button style="font-size: 12px">Add New</button><br>
       </div>
@@ -37,7 +38,21 @@
           </div>
       </div>
      
+     
     </div>
+    <div class = "row">  
+        <div class= "col-md-8">
+           <ul>
+             <li *ngFor = "let Note of Notes">
+               {{Note.name}} <br>
+               category: {{Note.category}} <br>
+               <p>content: {{Note.content|limitTo:100}}</p>
+             </li>
+           </ul>
+         
+    </div>
+  </div>
+    
   </div>
   
 </body>
