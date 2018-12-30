@@ -1,3 +1,16 @@
+.chatBox{
+  
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 90px);
+}
+
+@media (min-width: 768px) {
+    chatBox {
+      width: calc(100% - 225px);
+    }
+  }
 .chat{
     margin-top: auto;
     margin-bottom: auto;
