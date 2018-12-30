@@ -13,6 +13,9 @@ import { GroupsComponent } from './groups/groups.component';
 import { HangoutComponent } from './hangout/hangout.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,8 +32,10 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

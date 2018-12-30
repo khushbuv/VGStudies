@@ -12,7 +12,8 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path: 'notes',
-    component: NotesComponent
+    component: NotesComponent,
+    data: {title: 'Notes'}
   },
   {
     path: 'docs',
