@@ -1,0 +1,47 @@
+<ul class="sidebar navbar-nav" [class.toggled]="this.menuService.sidebarToggled">
+    <li class="nav-item" [class.active]="homeClicked">
+      <a class="nav-link" (click)="navigate('home')">
+        <i class="fa fa-home"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li class="nav-item" [class.active]="profileClicked">
+      <a class="nav-link" (click)="navigate('profile')">
+        <i class="fa fa-area-chart"></i>
+        <span>Profile</span></a>
+    </li>
+    <li class="nav-item" [class.active]="docClicked">
+      <a class="nav-link" (click)="navigate('docs')">
+        <i class="fa fa-book"></i>
+        <span>Docs</span></a>
+    </li>
+    <li class="nav-item" [class.active]="notesClicked">
+        <a class="nav-link" (click)="navigate('notes')">
+          <i class="fa fa-sticky-note"></i>
+          <span>Notes</span></a>
+      </li>
+
+      <li class="nav-item" [class.active]="qPaperClicked">
+          <a class="nav-link" (click)="navigate('q-paper')">
+            <i class="fa fa-question-circle"></i>
+            <span>Qpapers</span></a>
+        </li>
+
+        <li class="nav-item" [class.active]="classesClicked">
+            <a class="nav-link" (click)="navigate('classes')">
+              <i class="fa fa-users"></i>
+              <span>Classes</span></a>
+          </li>
+
+          <li class="nav-item" [class.active]="groupClicked">
+              <a class="nav-link" (click)="navigate('groups')">
+                <i class="fa fa-users"></i>
+                <span>Groups</span></a>
+            </li>
+
+            <li class="nav-item" [class.active]="hangoutClicked">
+                <a class="nav-link" (click)="navigate('hangout')">
+                  <i class="fa fa-weixin"></i>
+                  <span>Hangout</span></a>
+              </li>
+  </ul>
