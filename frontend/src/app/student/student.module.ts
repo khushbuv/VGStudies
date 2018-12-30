@@ -15,13 +15,14 @@ import { UserComponent } from './user/user.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuService } from './services/menu.service';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   imports: [
     CommonModule,
     StudentRoutingModule
   ],
-  declarations: [HomeComponent, DocsComponent, GroupsComponent, HangoutComponent, NotesComponent, ProfileComponent, QPaperComponent, SidebarComponent, ClassesComponent, UserComponent, NavbarComponent, FooterComponent],
+  declarations: [HomeComponent, DocsComponent, GroupsComponent, HangoutComponent, NotesComponent, ProfileComponent, QPaperComponent, SidebarComponent, ClassesComponent, UserComponent, NavbarComponent, FooterComponent, ChatComponent],
   providers:[MenuService]
 })
 export class StudentModule { }
