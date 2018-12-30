@@ -12,6 +12,7 @@ import { QPaperComponent } from './q-paper/q-paper.component';
 import { GroupsComponent } from './groups/groups.component';
 import { HangoutComponent } from './hangout/hangout.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home.component';
     QPaperComponent,
     GroupsComponent,
     HangoutComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
