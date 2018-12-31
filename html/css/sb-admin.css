@@ -374,8 +374,8 @@ body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
 
-  body{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+   body{ 
+    background: -webkit-linear-gradient(left, #f8f8f8, #e6e9eb);
 }
 .emp-profile{
     padding: 3%;
