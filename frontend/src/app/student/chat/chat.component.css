@@ -20,6 +20,17 @@
     border-radius: 15px !important;
     background-color: rgba(0,0,0,0.4) !important;
 }
+.minCard{
+    height: 50px !important;
+}
+.minHead{
+    height: 50px !important;
+    bottom:-215px;
+}
+.minChatRoomHead{
+    height: 50px !important;
+    bottom:-215px;
+}
 .contacts_body{
     padding:  0.75rem 0 !important;
     overflow-y: auto;
