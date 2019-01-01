@@ -135,7 +135,7 @@
 
         <div class="row">
           <div class="col-md-2">
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="add new note">Add</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="add new note">Add</button>
           </div>
           <script>
             $(function () {
@@ -144,20 +144,20 @@
           </script>
           <div class="col-md-3">
             <div class="customDiv">
-              <button type="button" class="btn btn-primary btn-sm">
-                <</button> <select name="notes_selection" style="width: 100px">
+              <button type="button" class="btn btn-secondary btn-sm">
+                <</button> <select name="notes_selection" style="width: 100px; height: 25px;">
                   <option value="last week" style="font-size: small">last week</option>
                   <option value="last month" style="font-size: small">last month</option>
                   <option value="last year" style="font-size: small">last year</option>
                   </select>
-                  <button type="button" class="btn btn-primary btn-sm">></button>
+                  <button type="button" class="btn btn-secondary btn-sm">></button>
             </div>
           </div>
           <div class="col-md-3">
             <div class="customDiv">
               <input type="text" placeholder="Search.." name="search">
-              <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-search"></i></button>
-              <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></button>
+              <button type="submit" class="btn btn-secondary btn-sm"><i class="fa fa-search"></i></button>
+              <button type="submit" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="Top" title="customize search"><i class="fa fa-plus"></i></button>
             </div>
           </div>
         </div>
@@ -174,6 +174,11 @@
               category: Note.category <br>
               <p>content: Note.content ....</p>
             </li>
+            <li>
+                Notes Name3 <br>
+                category: Note.category <br>
+                <p>content: Note.content ....</p>
+              </li>
           </ul>
         </div>
 
