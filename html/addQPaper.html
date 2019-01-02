@@ -154,10 +154,64 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="qPaperText" class="col-sm-2 col-form-label col-form-label-sm">In Text</Td></label>
-            <div class="col-sm-8">
-              <textarea class="form-control form-control-sm" id="qPaperText" placeholder="q-Paper" rows="10"></textarea>
+            <div class="col-md-9">
+              <div class="panel panel-default">
+                <div class="panel-body message">
+                  <div class="col-sm-11 col-sm-offset-1">
+
+                    <div class="btn-toolbar" role="toolbar">
+
+                      <div class="btn-group">
+                        <button class="btn btn-default"><span class="fa fa-bold"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-italic"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-underline"></span></button>
+                      </div>
+
+                      <div class="btn-group">
+                        <button class="btn btn-default"><span class="fa fa-align-left"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-align-right"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-align-center"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-align-justify"></span></button>
+                      </div>
+
+                      <div class="btn-group">
+                        <button class="btn btn-default"><span class="fa fa-indent"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-outdent"></span></button>
+                      </div>
+
+                      <div class="btn-group">
+                        <button class="btn btn-default"><span class="fa fa-list-ul"></span></button>
+                        <button class="btn btn-default"><span class="fa fa-list-ol"></span></button>
+                      </div>
+                      <button class="btn btn-default"><span class="fa fa-trash-o"></span></button>
+                      <button class="btn btn-default"><span class="fa fa-paperclip"></span></button>
+                      <div class="btn-group">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="fa fa-tags"></span>
+                          <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">add label <span class="label label-danger"> Home</span></a></li>
+                          <li><a href="#">add label <span class="label label-info">Job</span></a></li>
+                          <li><a href="#">add label <span class="label label-success">Clients</span></a></li>
+                          <li><a href="#">add label <span class="label label-warning">News</span></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                      <textarea class="form-control" id="message" name="body" rows="12" placeholder="Click here to reply"></textarea>
+                    </div>
+
+                    <!-- <div class="form-group">	 
+                                      <button type="submit" class="btn btn-success">Save</button>
+                                      <button type="submit" class="btn btn-default">Draft</button>
+                                      <button type="submit" class="btn btn-danger">Discard</button> 
+                                  </div>-->
+                  </div>
+                </div>
+              </div>
             </div>
+            <!--/.col-->
           </div>
           <div class="form-group row">
             <label for="qPaperFile" class="col-sm-2 col-form-label col-form-label-sm">Upload</label>
@@ -175,8 +229,12 @@
             </div>
           </div>
           <div class="form-group row">
-            <div class="col-sm-2">
-              <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            <div class="col-md-9">
+              <div class="form-group">
+                <button type="submit" class="btn btn-success">Save</button>
+                <button type="submit" class="btn btn-default">Draft</button>
+                <button type="submit" class="btn btn-danger">Discard</button>
+              </div>
             </div>
           </div>
       </div>
