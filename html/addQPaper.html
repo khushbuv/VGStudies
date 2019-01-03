@@ -22,6 +22,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
@@ -153,9 +154,44 @@
               </select>
             </div>
           </div>
+          <div class="form-group row" id="upload_qpaper_row">
+            <label for="qPaperFile" class="col-sm-2 col-form-label col-form-label-sm">Upload</label>
+            <div class="col-sm-3" id="upload_qpaper_column">
+              <input type="file" class="form-control-file form-control-sm" id="qPaperFile">
+            </div>
+            <div class="col-sm-1" id="upload_qpaper_btn_column">
+              <button type="button" id="qPaper_add_file_btn" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+          <!--<div class="form-group row" id="uploadFile_row">
+            <label for="qPaperFile" class="col-sm-2 col-form-label col-form-label-sm">In Text</label>
+          </div>-->
+          <div class="form-group row">
+            <label for="qPaperFile" class="col-sm-2 col-form-label col-form-label-sm">In Text</label>
+            <div class="col-md-4">
+              <button type="button" id="qPaper_Intext_btn" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+          <script>
+            $(document).ready(function () {
+              $('#qPaper_Intext_btn').click(function () {
+                if ($('#qPaper_Intext_btn').find("i").hasClass("fas fa-plus")) {
+                  $('#qpaper_textarea').show();
+                  $('#qPaper_Intext_btn').find("i").removeClass("fas fa-plus").addClass("fas fa-minus");
+                }
+                else {
+                  $('#qpaper_textarea').hide();
+                  $('#qPaper_Intext_btn').find("i").removeClass("fas fa-minus").addClass("fas fa-plus");
+                }
+              });
+              $('#qPaper_add_file_btn').click(function () {
+                $('#qPaperFile').clone().appendTo($('#upload_qpaper_column'));
+              });
+            });
+          </script>
           <div class="form-group row">
             <div class="col-md-9">
-              <div class="panel panel-default">
+              <div class="panel panel-default" id="qpaper_textarea" style="display: none">
                 <div class="panel-body message">
                   <div class="col-sm-11 col-sm-offset-1">
 
@@ -201,27 +237,13 @@
                     <div class="form-group">
                       <textarea class="form-control" id="message" name="body" rows="12" placeholder="Click here to reply"></textarea>
                     </div>
-
-                    <!-- <div class="form-group">	 
-                                      <button type="submit" class="btn btn-success">Save</button>
-                                      <button type="submit" class="btn btn-default">Draft</button>
-                                      <button type="submit" class="btn btn-danger">Discard</button> 
-                                  </div>-->
                   </div>
                 </div>
               </div>
             </div>
             <!--/.col-->
           </div>
-          <div class="form-group row">
-            <label for="qPaperFile" class="col-sm-2 col-form-label col-form-label-sm">Upload</label>
-            <div class="col-sm-3">
-              <input type="file" class="form-control-file form-control-sm" id="qPaperFile">
-            </div>
-            <div class="col-sm-1">
-              <button type="button" id="qPaper_add_file" class="btn btn-primary btn-sm">+</button>
-            </div>
-          </div>
+
           <div class="form-group row">
             <label for="qPaperTags" class="col-sm-2 col-form-label col-form-label-sm">Tags</label>
             <div class="col-sm-4">
