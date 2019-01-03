@@ -24,6 +24,24 @@
   <link href="css/sb-admin.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+  <script>
+      $(document).ready(function () {
+        $('#qPaper_Intext_btn').click(function () {
+          if ($('#qPaper_Intext_btn').find("i").hasClass("fas fa-plus")) {
+            $('#qpaper_textarea').show();
+            $('#qPaper_Intext_btn').find("i").removeClass("fas fa-plus").addClass("fas fa-minus");
+          }
+          else {
+            $('#qpaper_textarea').hide();
+            $('#qPaper_Intext_btn').find("i").removeClass("fas fa-minus").addClass("fas fa-plus");
+          }
+        });
+        $('#qPaper_add_file_btn').click(function () {
+          $('#qPaperFile').clone().appendTo($('#upload_qpaper_column'));
+        });
+      });
+    </script>
+
 </head>
 
 <body id="page-top">
@@ -172,23 +190,7 @@
               <button type="button" id="qPaper_Intext_btn" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
             </div>
           </div>
-          <script>
-            $(document).ready(function () {
-              $('#qPaper_Intext_btn').click(function () {
-                if ($('#qPaper_Intext_btn').find("i").hasClass("fas fa-plus")) {
-                  $('#qpaper_textarea').show();
-                  $('#qPaper_Intext_btn').find("i").removeClass("fas fa-plus").addClass("fas fa-minus");
-                }
-                else {
-                  $('#qpaper_textarea').hide();
-                  $('#qPaper_Intext_btn').find("i").removeClass("fas fa-minus").addClass("fas fa-plus");
-                }
-              });
-              $('#qPaper_add_file_btn').click(function () {
-                $('#qPaperFile').clone().appendTo($('#upload_qpaper_column'));
-              });
-            });
-          </script>
+         
           <div class="form-group row">
             <div class="col-md-9">
               <div class="panel panel-default" id="qpaper_textarea" style="display: none">
