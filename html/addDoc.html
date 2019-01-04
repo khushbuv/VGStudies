@@ -22,7 +22,19 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    var newEntry = [];
+    var i = 0;
+    $('#doc_upload_file_btn').click(function(){
+      newEntry[i++] = $('#docFile').clone().appendTo($('#upload_file_column'));
+    });
+    $('#doc_remove_file_btn').click(function(){
+      newEntry[--i].remove();
+    });
+  });
+  </script>
 </head>
 
 <body id="page-top">
@@ -155,11 +167,15 @@
           </div>
           <div class="form-group row">
             <label for="docFile" class="col-sm-2 col-form-label col-form-label-sm">Upload</label>
-            <div class="col-sm-3">
+            <div class="col-sm-3" id="upload_file_column">
               <input type="file" class="form-control-file form-control-sm" id="docFile">
             </div>
+            <div class="col-sm-1" >
+              <button type="button" id="doc_upload_file_btn" class="btn btn-primary btn-sm"><i class="fas fa-plus" style="font-size: x-small;"></i></button>
+            </div>
             <div class="col-sm-1">
-              <button type="button" id="doc_add_file" class="btn btn-primary btn-sm">+</button>
+              <button type="button" id="doc_remove_file_btn" class="btn btn-primary btn-sm"><i class="fas fa-minus"
+                  style="font-size: x-small;"></i></button>
             </div>
           </div>
           <div class="form-group row">
