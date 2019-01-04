@@ -25,22 +25,32 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script>
-      $(document).ready(function () {
-        $('#qPaper_Intext_btn').click(function () {
-          if ($('#qPaper_Intext_btn').find("i").hasClass("fas fa-plus")) {
-            $('#qpaper_textarea').show();
-            $('#qPaper_Intext_btn').find("i").removeClass("fas fa-plus").addClass("fas fa-minus");
-          }
-          else {
-            $('#qpaper_textarea').hide();
-            $('#qPaper_Intext_btn').find("i").removeClass("fas fa-minus").addClass("fas fa-plus");
-          }
-        });
-        $('#qPaper_add_file_btn').click(function () {
-          $('#qPaperFile').clone().appendTo($('#upload_qpaper_column'));
-        });
+    $(document).ready(function () {
+      var newEntry = [];
+      var i = 0;
+      $('#qPaper_Intext_btn').click(function () {
+        if ($('#qPaper_Intext_btn').find("i").hasClass("fas fa-plus")) {
+          $('#qpaper_textarea').show();
+          $('#qPaper_Intext_btn').find("i").removeClass("fas fa-plus").addClass("fas fa-minus");
+        }
+        else {
+          $('#qpaper_textarea').hide();
+          $('#qPaper_Intext_btn').find("i").removeClass("fas fa-minus").addClass("fas fa-plus");
+        }
       });
-    </script>
+      $('#qPaper_add_file_btn').click(function () {
+
+        newEntry[i++] = $('#qPaperFile').clone().appendTo($('#upload_qpaper_column'));
+        
+      });
+
+      // qPaper_remove_file_btn
+      $('#qPaper_remove_file_btn').click(function () {
+        // alert('remove button pressed');
+         newEntry[--i].remove();
+      });
+    });
+  </script>
 
 </head>
 
@@ -180,6 +190,10 @@
             <div class="col-sm-1" id="upload_qpaper_btn_column">
               <button type="button" id="qPaper_add_file_btn" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
             </div>
+            <div class="col-sm-1" id="remove_qpaper_btn_column">
+              <button type="button" id="qPaper_remove_file_btn" class="btn btn-primary btn-sm"><i class="fas fa-minus"></i></button>
+            </div>
+
           </div>
           <!--<div class="form-group row" id="uploadFile_row">
             <label for="qPaperFile" class="col-sm-2 col-form-label col-form-label-sm">In Text</label>
@@ -190,7 +204,7 @@
               <button type="button" id="qPaper_Intext_btn" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
             </div>
           </div>
-         
+
           <div class="form-group row">
             <div class="col-md-9">
               <div class="panel panel-default" id="qpaper_textarea" style="display: none">
