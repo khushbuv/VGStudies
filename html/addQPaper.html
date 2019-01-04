@@ -41,13 +41,13 @@
       $('#qPaper_add_file_btn').click(function () {
 
         newEntry[i++] = $('#qPaperFile').clone().appendTo($('#upload_qpaper_column'));
-        
+
       });
 
       // qPaper_remove_file_btn
       $('#qPaper_remove_file_btn').click(function () {
         // alert('remove button pressed');
-         newEntry[--i].remove();
+        newEntry[--i].remove();
       });
     });
   </script>
@@ -188,11 +188,14 @@
               <input type="file" class="form-control-file form-control-sm" id="qPaperFile">
             </div>
             <div class="col-sm-1" id="upload_qpaper_btn_column">
-              <button type="button" id="qPaper_add_file_btn" class="btn btn-primary btn-sm"><i class="fas fa-plus" style="font-size: x-small;"></i></button>
+              <button type="button" id="qPaper_add_file_btn" class="btn btn-primary btn-sm"><i class="fas fa-plus"
+                  style="font-size: x-small;"></i></button>
             </div>
             <div class="col-sm-1" id="remove_qpaper_btn_column">
-              <button type="button" id="qPaper_remove_file_btn" class="btn btn-primary btn-sm"><i class="fas fa-minus" style="font-size: x-small;"></i></button>
+              <button type="button" id="qPaper_remove_file_btn" class="btn btn-primary btn-sm"><i class="fas fa-minus"
+                  style="font-size: x-small;"></i></button>
             </div>
+            
 
           </div>
           <!--<div class="form-group row" id="uploadFile_row">
