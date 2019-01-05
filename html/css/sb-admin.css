@@ -242,7 +242,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   overflow-y: auto;
 }
 
-.card-body-icon {
+/*.card-body-icon {
   position: absolute;
   z-index: 0;
   top: -1.25rem;
@@ -251,7 +251,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   font-size: 5rem;
   -webkit-transform: rotate(15deg);
   transform: rotate(15deg);
-}
+}*/
 
 @media (min-width: 576px) {
   .card-columns {
@@ -285,6 +285,24 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
 
 .card-register {
   max-width: 40rem;
+}
+
+.card {
+  width: 16rem;
+  height: 10rem;
+}
+
+.card-title {
+  font-size: 16px;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+a:link {
+  color: rgb(2, 13, 61);
+  font-size: 14px;
 }
 
 .form-label-group {
