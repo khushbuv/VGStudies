@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(){
-    this.authService.authSuccess();
+  login(userName){
+    this.authService.authSuccess(userName);
   }
 
   register(){
