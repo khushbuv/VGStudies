@@ -13,17 +13,35 @@
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script>
-        // public_private_btn
         $(document).ready(function () {
-            $('#public_private_btn').click(function () {
-                if ($(this).text() === "Public") {
-                    $(this).text("Private");
-                } else {
-                    $(this).text("Public")
+            var newEntry = [];
+            var i = 0;
+            $('#note_upload_file_btn').click(function () {
+                newEntry[i++] = $('#noteFile').clone().appendTo($('#upload_file_column'));
+            });
+
+            $('#note_remove_file_btn').click(function () {
+                newEntry[--i].remove();
+            });
+            $('#noteCategory_select').change(function () {
+                var selected = $('#noteCategory_select option:selected').text();
+                if (selected === 'other') {
+                    $('#new_category_form').show();
+                }
+                else {
+                    $('#new_category_form').hide();
                 }
             });
 
@@ -33,6 +51,7 @@
 </head>
 
 <body id="page-top">
+
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
         <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
@@ -139,111 +158,121 @@
 
         <div id="content-wrapper">
             <div class="container-fluid">
+                <form>
+                    <div class="form-group row">
+                        <label for="groupName" class="col-sm-2 col-form-label col-form-label-sm">Group name</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control form-control-sm" id="groupName" placeholder="name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="noteCategory" class="col-sm-2 col-form-label col-form-label-sm">Category</label>
+                        <div class="col-sm-4">
+                            <select class="form-control form-control-sm" id="noteCategory_select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row" id="new_category_form" style="display:none">
+                        <label for="noteCategory" class="col-sm-2 col-form-label col-form-label-sm">New Category</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control form-control-sm" id="new_category_text" placeholder=" new category">
+                        </div>
+                    </div>
 
-                <!-- Breadcrumbs-->
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        Groups&nbsp;&nbsp; <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary" id="public_private_btn" data-toggle="tooltip"
-                                data-placement="top" title="public/private groups">Public</button>
-                            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
-                                title="create new group">Create</button>
+                    <div class="form-group row">
+                        <label for="groupPhoto" class="col-sm-2 col-form-label col-form-label-sm">Group Photo</label>
+                        <div class="col-sm-3" id="upload_file_column">
+                            <input type="file" class="form-control-file form-control-sm" id="groupPhoto">
+                        </div>
+                    </div>
 
+                    <div class="form-group row">
+                        <label for="groupDescription" class="col-sm-2 col-form-label col-form-label-sm">Description</label>
+                        <div class="col-sm-4" id="group_description">
+                            <textarea type="text" id="groupDescription" class="md-textarea form-control" rows="4"></textarea>
                         </div>
-                    </li>
-                    <!-- <li class="breadcrumb-item active">Overview</li> -->
-                </ol>
-                <script>
-                    $(function () {
-                        $('[data-toggle="tooltip"]').tooltip()
-                    })
-                </script>
-                <!-- Icon Cards-->
-                <div class="row">
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        <!-- style="width: 18rem -->
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Physics</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <a href="#" >View details...</a>
+                    </div>
+
+                    <div class="form-group row">
+                        <!-- Button trigger modal -->
+                        <label for="addMembers" class="col-sm-2 col-form-label col-form-label-sm"> Add members</label>
+                        <div class="col-sm-4">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addMemberModal">
+                                <i class="fas fa-plus" style="font-size: x-small;"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal" id="addMemberModal" tabindex="-1" role="dialog" aria-labelledby="addMemberModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addMemberModalLabel">members</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="text" class="form-control" style="font-size: 14px" placeholder="Search members"
+                                        name="search">
+                                    <div class="col-sm-4">
+                                        <img src="./images/bob.jpg" height="70px" width="70px"> &nbsp;&nbsp;&nbsp;&nbsp; Bob
+                                        <img src="./images/dino.png" height="70px" width="70px"> &nbsp;&nbsp;&nbsp;&nbsp; Bob
+                                        <img src="./images/ela.jpg" height="70px" width="70px"> &nbsp;&nbsp;&nbsp;&nbsp; Bob
+                                        <img src="./images/prince.jpg" height="70px" width="70px"> &nbsp;&nbsp;&nbsp;&nbsp; Bob
+                                        
+                                       
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="card text-white bg-secondary mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Chemistry</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <!-- <a href="#" class="btn btn-primary">View details</a> -->
-                                <a href="#">View details...</a>
+
+
+
+                    <div class="form-group row">
+                        <label for="noteTags" class="col-sm-2 col-form-label col-form-label-sm">Tags</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control form-control-sm" id="noteTags" placeholder="tags">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">Save</button>
+                                <button type="submit" class="btn btn-default">Draft</button>
+                                <button type="submit" class="btn btn-danger">Discard</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Maths</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <a href="#">View details... </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        <!-- style="width: 18rem -->
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Zoology</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <a href="#">View details...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="card text-white bg-secondary mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Botany</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <!-- <a href="#" class="btn btn-primary">View details</a> -->
-                                <a href="#">View details...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">English</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <a href="#">View details... </a>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+        </form>
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © Your Website 2018</span>
                 </div>
             </div>
+        </footer>
 
-
-
-            <!-- /.container-fluid -->
-
-            <!-- Sticky Footer -->
-            <footer class="sticky-footer">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright © Your Website 2018</span>
-                    </div>
-                </div>
-            </footer>
-
-        </div>
-        <!-- /.content-wrapper -->
+    </div>
+    <!-- /.content-wrapper -->
 
     </div>
     <!-- /#wrapper -->
@@ -254,12 +283,12 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="addMemberModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="addMemberModalLabel">Ready to Leave?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
