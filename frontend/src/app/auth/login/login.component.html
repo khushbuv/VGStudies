@@ -5,7 +5,7 @@
         <form>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+              <input type="email" id="inputEmail" class="form-control" #loginName placeholder="Email address" required="required" autofocus="autofocus">
               <label for="inputEmail">Email address</label>
             </div>
           </div>
@@ -23,7 +23,7 @@
               </label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" (click)="login()">Login</a>
+          <a class="btn btn-primary btn-block" (click)="login(loginName.value)">Login</a>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" (click)="register()">Register an Account</a>
