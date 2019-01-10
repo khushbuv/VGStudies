@@ -17,13 +17,13 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-        // public_private_btn
+        // all_my_btn
         $(document).ready(function () {
-            $('#public_private_btn').click(function () {
-                if ($(this).text() === "Public") {
-                    $(this).text("Private");
+            $('#all_my_btn').click(function () {
+                if ($(this).text() === "All") {
+                    $(this).text("My");
                 } else {
-                    $(this).text("Public")
+                    $(this).text("All")
                 }
             });
 
@@ -144,8 +144,8 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         Groups&nbsp;&nbsp; <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-secondary" id="public_private_btn" data-toggle="tooltip"
-                                data-placement="top" title="public/private groups">Public</button>
+                            <button type="button" class="btn btn-secondary" id="all_my_btn" data-toggle="tooltip"
+                                data-placement="top" title="all / my groups">All</button>
                             <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
                                 title="create new group">Create</button>
 

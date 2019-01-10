@@ -488,5 +488,7 @@ le
     color: #0062cc;
 }
 
- 
+#addMemberModal{
+  overflow: scroll;
 }
+
