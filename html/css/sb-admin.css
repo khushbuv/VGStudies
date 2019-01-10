@@ -35,6 +35,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   padding-left: 0;
 }
 
+
 @media (min-width: 768px) {
   body.fixed-nav #content-wrapper {
     padding-left: 225px;
@@ -422,7 +423,7 @@ le
 .profile-img .file input {
     position: absolute;
     opacity: 0;
-    right: 0;
+    right: 100px;
     top: 0;
 }
 .profile-head h5{
@@ -490,5 +491,9 @@ le
 
 #addMemberModal{
   overflow: scroll;
+}
+
+input:first-of-type{
+  border-radius: 12px;
 }
 
