@@ -47,7 +47,7 @@ html {
     height: 50px;
     text-align: center;
     color: #fff;
-    background: rgba(52, 58, 64, 0.5);
+    background: rgba(52, 58, 64, 0.5);  
     line-height: 46px;
   }
   
@@ -228,6 +228,12 @@ html {
     .sidebar.toggled .nav-item.dropdown .dropdown-toggle::after {
       display: none;
     }
+  }
+
+  .sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
   }
   
   .sidebar.fixed-top {

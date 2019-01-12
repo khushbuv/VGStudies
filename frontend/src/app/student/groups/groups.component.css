@@ -1,0 +1,52 @@
+@media (min-width: 576px) {
+    .card-columns {
+      -webkit-column-count: 1;
+      column-count: 1;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .card-columns {
+      -webkit-column-count: 2;
+      column-count: 2;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .card-columns {
+      -webkit-column-count: 2;
+      column-count: 2;
+    }
+  }
+  
+  :root {
+    --input-padding-x: 0.75rem;
+    --input-padding-y: 0.75rem;
+  }
+  
+  .card-login {
+    max-width: 25rem;
+  }
+  
+  .card-register {
+    max-width: 40rem;
+  }
+  
+  .card {
+    width: 14rem;
+    height: 10rem;
+  }
+  
+  .card-title {
+    font-size: 16px;
+  }
+  
+  .card-text {
+    font-size: 14px;
+  }
+  
+  a:link {
+    color: rgb(0, 3, 14);
+    font-size: 14px;
+  }
+  

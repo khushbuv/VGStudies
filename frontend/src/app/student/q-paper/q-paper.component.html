@@ -1,29 +1,61 @@
-<div class="container">
-    <div class = "row">
-      <div class= "col-md-2">
-        <button style="font-size: 12px">Add New</button><br>
-      </div>
-      <div class= "col-md-3">
-          <div class= "customDiv">
-            <button style = "width:40px; font-size: 12px"><</button>
-            <select name="notes_selection" style="width: 80px">
-              <option value="last week">last week</option>
-              <option value="last month">last month</option>
-              <option value="last year">last year</option>
-            </select>
-            <button style = "width:40px; font-size: 12px">></button></div>
-      </div>
-     <div class= "col-md-3">
-          <div class= "customDiv">
-            <input type = "text" placeholder="Search.." name = "search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-            <button type="submit"><i class="fa fa-plus"></i></button>
+<div id="content-wrapper">
+    <div class="container-fluid">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="add new qpaper">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-secondary btn-sm">
+            <</button> <select name="qpapers_selection" style="width: 100px; height: 25px; font-size: 14px">
+              <option value="last week" style="font-size: small">last week</option>
+              <option value="last month" style="font-size: small">last month</option>
+              <option value="last year" style="font-size: small">last year</option>
+              </select>
+              <button type="button" class="btn btn-secondary btn-sm">></button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type="text" style="font-size: 14px" placeholder="Search.." name="search">
+              <button type="submit" class="btn btn-secondary btn-sm"><i class="fa fa-search" style="font-size: x-small;"></i></button>
+              <button type="submit" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="Top" title="customize search"><i
+                  class="fa fa-plus" style="font-size: x-small;"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <select id="privacy_select" style="font-size: 14px;">
+                <option>Private</option>
+                <option>groups</option>
+                <option>Public</option>
+              </select>
+        </li>
 
+      </ol>
+      <div class="topcorner" style="position:fixed;
+      top:80px;
+      right:50px;
+   ">
+        <div class="input-group mb-3" id="groups_multi_select" style="display: none">
+          <select multiple class="custom-select" id="inputGroupSelect02" style="font-size: 14px">
+            <option value="1">group1</option>
+            <option value="2">group2</option>
+            <option value="3">group3</option>
+            <option value="4">group4</option>
+            <option value="5">group5</option>
+            <option value="5">group6</option>
+          </select>
+          <div class="input-group-append">
+            <label class="input-group-text" for="inputGroupSelect02">Groups</label>
           </div>
+        </div>
       </div>
-      <div class= "col-md-1">
-          <button type="submit" style="font-size: 12px">Public</button>
+      <div class="row">
+        <ul>
+          <li>
+            qpapers Name1 <br>
+            category: qpaper.category <br>
+            <p>content: qpaper.content ....</p>
+          </li>
+          <li>
+            qpapers Name2 <br>
+            category: qpaper.category <br>
+            <p>content: qpaper.content ....</p>
+          </li>
+          <li>
+            qpapers Name3 <br>
+            category: qpaper.category <br>
+            <p>content: qpaper.content ....</p>
+          </li>
+        </ul>
       </div>
-     
-    </div>
-  </div>
