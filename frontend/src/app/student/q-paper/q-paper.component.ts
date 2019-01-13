@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-q-paper',
@@ -10,6 +11,16 @@ export class QPaperComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    $(document).ready(function () {
+      $('#privacy_select').change(function () {
+        var selected = $('#privacy_select option:selected').text();
+        if (selected === 'groups') {
+          $('#groups_multi_select').show();
+        } else {
+          $('#groups_multi_select').hide();
+        }
+      });
+    });
   }
 
 }
