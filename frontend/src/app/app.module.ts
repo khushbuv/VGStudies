@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
@@ -12,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
     AppComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     AuthModule,

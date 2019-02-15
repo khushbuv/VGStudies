@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -8,7 +9,8 @@ import * as $ from 'jquery';
 })
 export class NotesComponent implements OnInit {
 
-  constructor() { }
+  addNoteClicked:boolean =  false
+  constructor(private router: Router) { }
 
   ngOnInit() {
     $(document).ready(function () {
@@ -21,6 +23,11 @@ export class NotesComponent implements OnInit {
         }
       });
     });
+  }
+
+  navigateToAddNote(){
+     this.addNoteClicked = true
+     this.router.navigate(['/student/add-note'])
   }
 
 }

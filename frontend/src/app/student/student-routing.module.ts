@@ -9,17 +9,19 @@ import { DocsComponent } from './docs/docs.component';
 import { NotesComponent } from './notes/notes.component';
 import { ClassesComponent } from './classes/classes.component';
 import { UserComponent } from './user/user.component';
+import { AddNoteComponent } from './add-note/add-note.component';
+import { AddQpaperComponent } from './add-qpaper/add-qpaper.component';
 
 const routes: Routes = [{
   path: '',
- // redirectTo: 'home',
+  // redirectTo: 'home',
   //pathMatch: 'full'
   component: UserComponent,
   children: [{
     path: '',
-    redirectTo : 'home',
+    redirectTo: 'home',
     pathMatch: 'full'
-  },{
+  }, {
     path: 'notes',
     component: NotesComponent
   },
@@ -50,7 +52,16 @@ const routes: Routes = [{
   {
     path: 'home',
     component: HomeComponent
-  }]
+  },
+  {
+    path: 'add-note',
+    component: AddNoteComponent
+  },
+  {
+    path: 'add-qpaper',
+    component: AddQpaperComponent
+  }
+  ]
 
 }
 

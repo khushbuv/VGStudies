@@ -42,16 +42,8 @@ public class NotesApiController implements NotesApi {
 
     public ResponseEntity<List<Note>> getNotes(@ApiParam(value = "",required=true) @PathVariable("userId") Long userId,@NotNull @Valid @FormatResolver("tdate")LocalDate tdate,@ApiParam(value = "notes need to be fetched from last week, last month or last year", allowableValues = "last_week, last_month, last_year") @Valid @RequestParam(value = "duration", required = false) List<String> duration) {
         String accept = request.getHeader("Accept");
-        if (accept != null && accept.contains("application/xml")) {
-            try {
-                return new ResponseEntity<List<Note>>(objectMapper.readValue("<Note>  <id>123456789</id>  <name>Radioactive</name>  <category>Chemistry</category>  <tags>aeiou</tags>  <content>Electron number for Uranium is 92</content></Note>", List.class), HttpStatus.NOT_IMPLEMENTED);
-            } catch (IOException e) {
-                log.error("Couldn't serialize response for content type application/xml", e);
-                return new ResponseEntity<List<Note>>(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
-
-        if (accept != null && accept.contains("application/json")) {
+      
+        if (accept != null ) {
         	HttpHeaders headers = new HttpHeaders();
         	headers.add("Content-Type","application/json; charset=UTF-8");
         	headers.add("Access-Control-Allow-Origin", "*");

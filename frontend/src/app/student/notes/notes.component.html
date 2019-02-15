@@ -2,7 +2,8 @@
   <div class="container-fluid">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <button type="button" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="add new note">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="navigateToAddNote()" type="button" class="btn btn-secondary btn-sm" id="add-note-btn"  data-toggle="tooltip" data-placement="top" title="add new note">Add</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        
         <button type="button" class="btn btn-secondary btn-sm">
           <</button> <select name="notes_selection" style="width: 100px; height: 25px; font-size: 14px">
             <option value="last week" style="font-size: small">last week</option>
